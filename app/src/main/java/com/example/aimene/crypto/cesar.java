@@ -1,8 +1,7 @@
 package com.example.aimene.crypto;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.ButtonBarLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,12 +38,24 @@ public class cesar extends AppCompatActivity  implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnCrypted:
-                int let = clairText.getText().toString().length();
-                for (int i = 1; i < let; i++) {
-                    cephirText.setText(clairText.getText().toString().length());
-                }
-                Toast.makeText(this, cephirText.getText(), Toast.LENGTH_SHORT).show();
+                cephirText.setText(crypte(clairText.getText().toString()));
+                Toast.makeText(this, "A", Toast.LENGTH_SHORT).show();
             break;
+            case R.id.btnreset:
+                clairText.setText("");
+                scale.setText("");
+                cephirText.setText("");
+                decryptedText.setText("");
+                break;
         }
+    }
+
+    private String crypte(String a) {
+        String crypted = "";
+        for (int i = 0, len = a.length(), buffer = 0; i < len; i++) {
+            buffer = ((int) a.charAt(i)) + 3;
+            crypted = crypted + (char)(buffer);
+        }
+        return crypted;
     }
 }

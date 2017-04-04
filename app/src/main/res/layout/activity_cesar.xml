@@ -23,7 +23,8 @@
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/clairText"
-            android:hint="Enter your Clair Message here"/>
+            android:hint="Enter your Clair Message here"
+            android:textAllCaps="true"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -44,7 +45,9 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/cephirText" />
+            android:id="@+id/cephirText"
+            android:hint="Enter your crypted Message here"
+            android:textAllCaps="true"/>
 
         <Button
             android:text="decryp it"
