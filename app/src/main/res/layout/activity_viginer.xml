@@ -24,13 +24,13 @@
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/clairText"
-            android:hint="Enter your Clair Message here"/>
+            android:hint="Enter Your Clair Message Here"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="scale"
+            android:inputType="textPersonName"
+            android:hint="Enter Your Key Word Here"
             android:ems="10"
             android:id="@+id/scale" />
 
@@ -45,6 +45,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
+            android:hint="Enter Your Decrypted Message Here"
             android:id="@+id/cephirText" />
 
         <Button
@@ -64,7 +65,7 @@
             android:text="reset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/reset" />
+            android:id="@+id/btnReset" />
     </LinearLayout>
 
     <TextView

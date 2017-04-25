@@ -1,11 +1,10 @@
 package com.example.aimene.crypto;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class viginer extends AppCompatActivity implements View.OnClickListener {
     EditText clairText;
@@ -30,7 +29,7 @@ public class viginer extends AppCompatActivity implements View.OnClickListener {
         crypted.setOnClickListener(this);
         decrypted = (Button) findViewById(R.id.btndecrypted);
         decrypted.setOnClickListener(this);
-        reset = (Button) findViewById(R.id.btnreset);
+        reset = (Button) findViewById(R.id.btnReset);
         reset.setOnClickListener(this);
     }
 
@@ -38,12 +37,36 @@ public class viginer extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnCrypted:
-                for (int i = 0,let = clairText.getText().toString().length(); i < let; i++) {
-                    clairText.setText((""+clairText.getText().toString().charAt(i)+scale).charAt(i));
-                    cephirText.setText((""+clairText.getText().toString().charAt(i)+scale).charAt(i));
-                    Toast.makeText(this, "hi", Toast.LENGTH_SHORT).show();
-                }
+                int a = Integer.parseInt(scale.getText().toString());
+                cephirText.setText(crypte(clairText.getText().toString(), a));
+                break;
+            case R.id.btndecrypted:
+                int b = Integer.parseInt(scale.getText().toString());
+                decryptedText.setText(decrypte(cephirText.getText().toString(), b));
+                break;
+            case R.id.btnReset:
+                clairText.setText("");
+                scale.setText("");
+                cephirText.setText("");
+                decryptedText.setText("");
                 break;
         }
+    }
+
+    private String crypte(String a, int b) {
+        String crypted = "";
+        for (int i = 0, len = a.length(), buffer = 0; i < len; i++) {
+            buffer = ((int) a.charAt(i)) + b;
+            crypted = crypted + (char)(buffer);
+        }
+        return crypted;
+    }
+    private String decrypte(String a, int b) {
+        String decrypted = "";
+        for (int i = 0, len = a.length(), buffer = 0; i < len; i++) {
+            buffer = ((int) a.charAt(i)) - b;
+            decrypted = decrypted + (char)(buffer);
+        }
+        return decrypted;
     }
 }

@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class cesar extends AppCompatActivity  implements View.OnClickListener{
     EditText clairText;
@@ -38,9 +37,13 @@ public class cesar extends AppCompatActivity  implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnCrypted:
-                cephirText.setText(crypte(clairText.getText().toString()));
-                Toast.makeText(this, "A", Toast.LENGTH_SHORT).show();
+                int a = Integer.parseInt(scale.getText().toString());
+                cephirText.setText(crypte(clairText.getText().toString(), a));
             break;
+            case R.id.btndecrypted:
+                int b = Integer.parseInt(scale.getText().toString());
+                decryptedText.setText(decrypte(cephirText.getText().toString(), b));
+                break;
             case R.id.btnreset:
                 clairText.setText("");
                 scale.setText("");
@@ -50,12 +53,20 @@ public class cesar extends AppCompatActivity  implements View.OnClickListener{
         }
     }
 
-    private String crypte(String a) {
+    private String crypte(String a, int b) {
         String crypted = "";
         for (int i = 0, len = a.length(), buffer = 0; i < len; i++) {
-            buffer = ((int) a.charAt(i)) + 3;
+            buffer = ((int) a.charAt(i)) + b;
             crypted = crypted + (char)(buffer);
         }
         return crypted;
+    }
+    private String decrypte(String a, int b) {
+        String decrypted = "";
+        for (int i = 0, len = a.length(), buffer = 0; i < len; i++) {
+            buffer = ((int) a.charAt(i)) - b;
+            decrypted = decrypted + (char)(buffer);
+        }
+        return decrypted;
     }
 }

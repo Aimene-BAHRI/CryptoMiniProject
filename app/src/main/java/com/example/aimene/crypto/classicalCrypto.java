@@ -4,10 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.*;
 import android.widget.Button;
 
-public class classicalCrypto extends AppCompatActivity implements OnClickListener{
+public class classicalCrypto extends AppCompatActivity implements View.OnClickListener{
     Button cesar;
     Button viginer;
 
@@ -15,8 +14,10 @@ public class classicalCrypto extends AppCompatActivity implements OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classical_crypto);
+
         cesar = (Button) findViewById(R.id.cesar);
         cesar.setOnClickListener(this);
+
         viginer = (Button) findViewById(R.id.viginer);
         viginer.setOnClickListener(this);
     }
@@ -29,9 +30,11 @@ public class classicalCrypto extends AppCompatActivity implements OnClickListene
                 startActivity(intent);
                 break;
             case R.id.viginer:
-                Intent intent2 = new Intent(this, viginer.class);
-                startActivity(intent2);
+                Intent intent1 = new Intent(this, viginer.class);
+                startActivity(intent1);
                 break;
+            default:
+                return ;
         }
     }
 }
