@@ -22,14 +22,21 @@
 
         <Button
             android:text="Classical Crypto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/classicCrypto" />
+            android:layout_width="200pt"
+            android:layout_height="match_parent"
+            android:id="@+id/classicCrypto"
+            android:layout_weight="1"
+            android:rotation="20"
+            android:background="#2ecc71"
+            android:layout_marginBottom="20dp" />
 
         <Button
             android:text="modern Crypto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/modernCrypto" />
+            android:layout_height="match_parent"
+            android:id="@+id/modernCrypto"
+            android:layout_weight="1"
+            android:rotation="20"
+            android:background="#3498db"/>
     </LinearLayout>
 </RelativeLayout>

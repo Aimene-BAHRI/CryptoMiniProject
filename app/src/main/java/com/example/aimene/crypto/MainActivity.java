@@ -8,34 +8,61 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+      /////////////////////
+     //----Attribute----//
+    /////////////////////
     Button classical;
     Button modern;
 
+
+    // Activity life Cycle
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Initialisation
+        init();
+
+    }
+
+
+
+      ////////////////////
+     //----Methodes----//
+    ////////////////////
+
+
+    /* Initialisation */
+    private void init() {
+        // Match layout
         classical = (Button) findViewById(R.id.classicCrypto);
         modern = (Button) findViewById(R.id.modernCrypto);
 
+        // OnClick Listener
         classical.setOnClickListener(this);
         modern.setOnClickListener(this);
     }
 
+
+    /* Onclick Listener */
     @Override
     public void onClick(View v) {
+
+        Intent familly_box = new Intent(this, FamillyBoxActivity.class);
+
         switch (v.getId()) {
             case R.id.classicCrypto:
-                Intent intent = new Intent(this, classicalCrypto.class);
-                startActivity(intent);
+                familly_box.putExtra("familly","Classic");
                 break;
             case R.id.modernCrypto:
-                Intent intent1 = new Intent(this, modernCrypto.class);
-                startActivity(intent1);
+                familly_box.putExtra("familly","Modern");
                 break;
+
             default:
                 return ;
         }
+
+        startActivity(familly_box);
     }
 }

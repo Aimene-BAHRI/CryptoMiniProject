@@ -8,23 +8,22 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-                  android:screenOrientation="portrait">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".classicalCrypto"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".modernCrypto"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".cesar"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".viginer"
-            android:screenOrientation="portrait">
-
-        </activity>
+        <activity
+            android:name=".FamillyBoxActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GetData"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Chrypt_DechryptActivity"></activity>
     </application>
 
 </manifest>
