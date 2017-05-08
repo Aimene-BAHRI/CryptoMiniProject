@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
-
       ////////////////////
      //----Methodes----//
     ////////////////////
@@ -44,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         modern.setOnClickListener(this);
     }
 
-
     /* Onclick Listener */
     @Override
     public void onClick(View v) {
@@ -58,11 +55,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.modernCrypto:
                 familly_box.putExtra("familly","Modern");
                 break;
-
             default:
                 return ;
         }
-
         startActivity(familly_box);
     }
 }

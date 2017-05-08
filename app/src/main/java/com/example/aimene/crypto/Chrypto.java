@@ -51,8 +51,6 @@ public class Chrypto {
     }
 
 
-
-
     /* De_Chrypt */
     public String de_chrypt(String text , String key){
         String result = "";
@@ -80,9 +78,19 @@ public class Chrypto {
     public String cezar_chrypt(String text, String key) {
         int k = Integer.valueOf(key);
         String crypted = "";
+        int base = 0;
         for (int i = 0, len = text.length(), buffer = 0; i < len; i++) {
-            buffer = ((int) text.charAt(i)) + k;
-            crypted = crypted + (char)(buffer);
+            if (text.charAt(i) != ' ') {
+                if (text.charAt(i) >= 'A'  && text.charAt(i) <= 'Z')
+                    base = 65;
+                else if (text.charAt(i) >= 'a'  && text.charAt(i) <= 'z')
+                    base = 97;
+
+                buffer = (((int) text.charAt(i)) + k - base )% 26 + base;
+                crypted = crypted + (char)(buffer);
+            }
+            else
+                crypted = crypted + ' ';
         }
         return crypted;
     }
@@ -90,18 +98,28 @@ public class Chrypto {
     public String cezar_de_chrypt(String text, String key) {
         int k = Integer.valueOf(key);
         String decrypted = "";
+        int base = 0;
         for (int i = 0, len = text.length(), buffer = 0; i < len; i++) {
-            buffer = ((int) text.charAt(i)) - k;
-            decrypted = decrypted + (char)(buffer);
+            if (text.charAt(i) != ' '){
+                int c = text.charAt(i);
+                if (Character.isUpperCase(c)){
+                    c = c - (k % 26);
+                    if (c < 'A')
+                        c += 26;
+                }
+                else if (Character.isLowerCase(c))
+                    c = c - (k % 26);
+                if(c<'a')
+                    c=c+26;
+                decrypted=decrypted+(char) c ;
+            }
+            else
+                decrypted = decrypted + ' ';
         }
         return decrypted;
     }
 
-
-
     //TODO
-
-
     /* Vigener */
     private String vigener_chrypt(String text, String key) {
         return "";
