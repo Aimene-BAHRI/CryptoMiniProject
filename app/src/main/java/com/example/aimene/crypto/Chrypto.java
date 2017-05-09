@@ -24,8 +24,6 @@ public class Chrypto {
         this.name = name;
     }
 
-
-
       ////////////////////
      //----Methodes----//
     ////////////////////
@@ -50,7 +48,6 @@ public class Chrypto {
         return result;
     }
 
-
     /* De_Chrypt */
     public String de_chrypt(String text , String key){
         String result = "";
@@ -70,9 +67,6 @@ public class Chrypto {
         }
         return result;
     }
-
-
-
 
     /* Cezar */
     public String cezar_chrypt(String text, String key) {
@@ -99,7 +93,7 @@ public class Chrypto {
         int k = Integer.valueOf(key);
         String decrypted = "";
         int base = 0;
-        for (int i = 0, len = text.length(), buffer = 0; i < len; i++) {
+        for (int i = 0, len = text.length(); i < len; i++) {
             if (text.charAt(i) != ' '){
                 int c = text.charAt(i);
                 if (Character.isUpperCase(c)){
@@ -122,13 +116,29 @@ public class Chrypto {
     //TODO
     /* Vigener */
     private String vigener_chrypt(String text, String key) {
-        return "";
+        String crypted = "";
+        text = text.toUpperCase();
+        for (int i = 0, j = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+            if (c < 'A' || c > 'Z') continue;
+            crypted += (char) ((c + key.charAt(j) - 12 * 'A') % 26 + 'A');
+            j = ++j % key.length();
+        }
+        return crypted;
     }
 
     private String vigener_de_chrypt(String text, String key) {
-        return "";
+        String decrypted;
+        decrypted = "";
+        text = text.toUpperCase();
+        for (int i = 0, j = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+            if (c < 'A' || c > 'Z') continue;
+            decrypted += (char) ((c - key.charAt(j) + 26) % 26 + 'A');
+            j = ++j % key.length();
+        }
+        return decrypted;
     }
-
 
     /* Rsa */
     private String rsa_chrypt(String text, String key) {
@@ -138,7 +148,6 @@ public class Chrypto {
     private String rsa_de_chrypt(String text, String key) {
      return "";
     }
-
 
     /* Elgamel */
     private String elgamel_chrypt(String text, String key) {

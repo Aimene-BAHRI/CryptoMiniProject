@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button classical;
     Button modern;
 
-
     // Activity life Cycle
     @Override
     protected void onCreate(Bundle savedInstanceState) {
