@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_cesar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.aimene.crypto.GetData">
+
+    <TextView
+        android:id="@+id/chtypto_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="\? Cryptography"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/chtypto_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Key"
+            android:ems="10"
+            android:id="@+id/key" />
+
+        <EditText
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:hint="Enter your Message here"
+            android:inputType="textPersonName"
+            android:textAllCaps="true" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp">
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/chrypt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Chrypt"
+                    android:checked="true"/>
+                <RadioButton
+                    android:id="@+id/de_chrypt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" De_Chrypt"/>
+            </RadioGroup>
+            <Button
+                android:text="GO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/result"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"/>
+
+        </RelativeLayout>
+
+        <Button
+            android:layout_marginTop="40dp"
+            android:text="reset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnreset" />
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
