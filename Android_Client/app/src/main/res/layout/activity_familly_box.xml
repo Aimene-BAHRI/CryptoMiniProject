@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_classical_crypto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.aimene.crypto.FamillyBoxActivity">
+
+    <TextView
+        android:id="@+id/familly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="top"
+        android:gravity="center"
+        android:text="\? chryptographie"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:gravity="center">
+
+        <Button
+            android:text="\?"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/type1"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+        <Button
+            android:text="\?"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/type2"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+    </LinearLayout>
+</RelativeLayout>
