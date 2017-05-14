@@ -66,6 +66,10 @@ public class GetData extends AppCompatActivity  implements View.OnClickListener{
         /* Set value */
         chrypto_name.setText(familly_box.getExtras().get("name").toString());
 
+        if(familly_box.getExtras().get("name").toString().equals("Rsa")){
+            key.setText("none");
+            key.setVisibility(View.GONE);
+        }
         /* Listeners */
         go_result.setOnClickListener(this);
         reset.setOnClickListener(this);
@@ -80,7 +84,7 @@ public class GetData extends AppCompatActivity  implements View.OnClickListener{
             case R.id.result:
                 if (!text.getText().toString().equals("") &&
                         !key.getText().toString().equals("")){
-                    Intent result = new Intent(this,Chrypt_DechryptActivity.class);
+                    Intent result = new Intent(this,Cript_DecriptActivity.class);
 
                     result.putExtra("name",chrypto_name.getText().toString());
                     result.putExtra("key",key.getText().toString());
