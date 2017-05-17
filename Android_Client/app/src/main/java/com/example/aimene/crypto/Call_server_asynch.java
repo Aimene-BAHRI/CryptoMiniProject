@@ -2,6 +2,7 @@ package com.example.aimene.crypto;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.EditText;
 
 import java.io.IOException;
 
@@ -18,6 +19,32 @@ import okhttp3.Response;
 public class Call_server_asynch extends AsyncTask<String, Void, String> {
 
     private final OkHttpClient client = new OkHttpClient();
+
+
+    public String get_key(String name, String methode) {
+        try {
+            /* Create body */
+            RequestBody body = new FormBody.Builder()
+                    .add("name", name)
+                    .add("methode", methode)
+                    .build();
+
+            /* Create request */
+            Request request = new Request.Builder()
+                    .url("http://criptoBox.ngrok.io/cript")
+                    .post(body)
+                    .build();
+
+            /*
+            *  Send ----> Request
+            *  Get  ----> Response
+            */
+            Response response = client.newCall(request).execute();
+            return response.body().string();
+        } catch (IOException e) {
+            return "Error: " + e.getMessage();
+        }
+    }
 
 
     public String sendData(String name, String methode, String message, String key){
@@ -50,14 +77,19 @@ public class Call_server_asynch extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... data) {
-        return /*res.body*/sendData(data[0], data[1], data[2], data[3]);
+        if (data[1] == "get_key")
+            return get_key(data[0], data[1]) ;
+        else
+            return /*res.body*/sendData(data[0], data[1], data[2], data[3]);
     }
+
 
     @Override
     protected void onPostExecute(String response) {
         String res = response;
         Log.d("networking", response);
     }
+
 
 
 }
